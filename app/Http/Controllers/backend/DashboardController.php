@@ -1,0 +1,189 @@
+<?php
+
+namespace App\Http\Controllers\backend;
+
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Http\Request;
+use App\Models\Profile;
+use App\Traits\ImageTrait;
+use App\Traits\RemoveImageTrait;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use App\Models\Area;
+use App\Models\Category;
+use App\Models\City;
+use App\Models\Listing;
+
+class DashboardController extends Controller
+{
+
+    use ImageTrait, RemoveImageTrait;
+
+    // the admin Main dashboard page
+    public function index()
+    {
+        $categories = Category::all()->count();
+        $areas = Area::all()->count();
+        $cities = City::all()->count();
+        $listings = Listing::all()->count();
+
+        if (Auth::user()->role == 'admin') {
+            return view('backend.dashboard.dashboard' , compact(['categories','areas','cities','listings']));
+        } elseif (Auth::user()->role == 'editor') {
+            return view('backend.dashboard.dashboard' , compact(['categories','areas','cities','listings']));
+        } else {
+            return redirect(route('site.home'));
+        }
+    }
+
+    // the admin home dashboard page
+    public function home()
+    {
+        return view('backend.dashboard.dashboard-home');
+    }
+
+    // the admin home dashboard page
+    public function Users_Profile()
+    {
+
+        if (Auth::user()->role == 'admin') {
+
+            $users = User::all();
+            $profiles = Profile::all();
+            return view('backend.dashboard.users-profiles.dashboard-profiles', ['users' => $users, 'profiles' => $profiles]);
+        } elseif (Auth::user()->role == 'editor') {
+
+            $user = Auth::user()->profile;
+            return view('backend.dashboard.users-profiles.dashboard-user-editor', ['user' => $user]);
+        } else {
+
+            return redirect(route('home'));
+        }
+    }
+
+
+    // route to show user profile
+    public function edit_profile($id)
+    {
+        $profile = Profile::where('id', $id)->first();
+        $user = User::where('id', $id)->first();
+        return view('backend.dashboard.users-profiles.edit_profile', ['profile' => $profile, 'user' => $user]);
+    }
+
+
+    // get the login user profile
+    public function profile($id)
+    {
+        $profile = User::where('id', $id)->first()->profile;
+        $user = User::where('id', $id)->first();
+        return view('backend.dashboard.users-profiles.user_profile', ['user' => $user, 'profile' => $profile]);
+    }
+
+
+    // update profile
+    public function update_profile(Request $request, $id)
+    {
+        $profile = Profile::where('id', $id)->first();
+
+        $picture = '';
+        $removable_image_msg = '';
+        if ($request->hasFile('picture')) {
+            // remove current file frop public folder
+            $removable_image_msg = $this->RemoveImage($profile->picture);
+
+             // make directory if not created yet
+             if (!is_dir(public_path('/assets-file/images'))){
+                mkdir(public_path('/assets-file/images/profiles') , 0777);
+            }
+
+            // save file to the public folder
+            $picture = $this->saveImages($request->picture, 'assets-file/images/profiles');
+            $profile->update([
+                'user_id'         => $request->get('user_id'),
+                'username'        => $request->get('username'),
+                'ar_username'     => $request->get('ar_username'),
+                'email'           => $request->get('email'),
+                'tel'             => $request->get('tel'),
+                'country'         => $request->get('country'),
+                'ar_country'      => $request->get('ar_country'),
+                'city'            => $request->get('city'),
+                'ar_city'         => $request->get('ar_city'),
+                'about'           => $request->get('about'),
+                'ar_about'        => $request->get('ar_about'),
+                'more_info'       => $request->get('more_info'),
+                'ar_more_info'    => $request->get('ar_more_info'),
+                'picture'         => $picture,
+                'website'         => $request->get('website'),
+                'facebook'        => $request->get('facebook'),
+                'twitter'         => $request->get('twitter'),
+                'instagram'       => $request->get('instagram'),
+                'pinterest'       => $request->get('pinterest')
+            ]);
+        } else {
+            $profile->update([
+                'user_id'         => $request->get('user_id'),
+                'username'        => $request->get('username'),
+                'ar_username'     => $request->get('ar_username'),
+                'email'           => $request->get('email'),
+                'tel'             => $request->get('tel'),
+                'country'         => $request->get('country'),
+                'ar_country'      => $request->get('ar_country'),
+                'city'            => $request->get('city'),
+                'ar_city'         => $request->get('ar_city'),
+                'about'           => $request->get('about'),
+                'ar_about'        => $request->get('ar_about'),
+                'more_info'       => $request->get('more_info'),
+                'ar_more_info'    => $request->get('ar_more_info'),
+                'website'         => $request->get('website'),
+                'facebook'        => $request->get('facebook'),
+                'twitter'         => $request->get('twitter'),
+                'instagram'       => $request->get('instagram'),
+                'pinterest'       => $request->get('pinterest')
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'The Profile Updated With success ' . $removable_image_msg);
+    }
+
+    // permessions  ==> ( show and make permession to the users just by admin user )
+    public function users_permessions()
+    {
+        $users = User::all();
+        return view('backend.dashboard.permessions.dashboard-users-permessions', ['users' => $users]);
+    }
+
+
+    // change user permession to admin
+    public function make_admin(User $user)
+    {
+        $user->role = "admin";
+        $user->save();
+        return redirect()->back()->with('success', 'the user updated to admin');
+    }
+
+    // change user permession to admin
+    public function make_editor(User $user)
+    {
+        $user->role = "editor";
+        $user->save();
+        return redirect()->back()->with('success', 'the user updated to editor');
+    }
+
+    // change user permession to admin
+    public function make_user(User $user)
+    {
+        $user->role = "user";
+        $user->save();
+        return redirect()->back()->with('success', 'the user updated to user');
+    }
+
+
+    // route to delete user profile
+    public function delete_profile($id)
+    {
+        $profile = Profile::where('id',$id)->first();
+        $profile->delete();
+        return redirect()->back()->with('danger', 'the profile deleted with success');
+    }
+}

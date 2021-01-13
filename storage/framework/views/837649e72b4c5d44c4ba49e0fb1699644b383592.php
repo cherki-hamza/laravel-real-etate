@@ -1,0 +1,1 @@
+<?php /**PATH /var/www/html/cherki-RealEstate/resources/views/backend/layouts/menu.blade.php ENDPATH**/ ?>
