@@ -113,10 +113,22 @@ class ListingsController extends Controller
         $listing->es_title = $request->get('es_title');
         $listing->ar_title = $request->get('ar_title');
 
-        $listing->en_slug = Str::slug($request->get('en_title') , '-');
-        $listing->fr_slug = Str::slug($request->get('fr_title') , '-');
-        $listing->es_slug = Str::slug($request->get('es_title') , '-');
-        $listing->ar_slug = str_replace(' ', '-' , $request->get('ar_title') );
+
+        $listing->nbr_rooms = $request->get('nbr_rooms');
+        $listing->nbr_living_romm = $request->get('nbr_living_romm');
+        $listing->nbr_bathroom = $request->get('nbr_bathroom');
+        $listing->nbr_bedrooms = $request->get('nbr_bedrooms');
+
+        $listing->balcony = $request->get('balcony');
+        $listing->terrace = $request->get('terrace');
+        $listing->view = $request->get('view');
+        $listing->garden = $request->get('garden');
+
+        $listing->garage = $request->get('garage');
+        $listing->parking = $request->get('parking');
+        $listing->swimming_pool = $request->get('swimming_pool');
+
+
 
         $listing->en_desc = $request->get('en_desc');
         $listing->fr_desc = $request->get('fr_desc');
@@ -170,6 +182,12 @@ class ListingsController extends Controller
         $ref = 'Ref : '.$user_id.''.$rand_ref;
         return $ref;
     } */
+
+     /* $listing->en_slug = Str::slug($request->get('en_title') , '-');
+        $listing->fr_slug = Str::slug($request->get('fr_title') , '-');
+        $listing->es_slug = Str::slug($request->get('es_title') , '-');
+        $listing->ar_slug = str_replace(' ', '-' , $request->get('ar_title') );
+     */
 
     /**
      * Display the specified resource.
@@ -238,7 +256,7 @@ class ListingsController extends Controller
 
             // save new pictures
              // make directory if not created yet
-             if (!is_dir(public_path('/assets-file/images/listings'))){
+             if (!is_dir(public_path('/assets-file/images'))){
                 mkdir(public_path('/assets-file/images/listings') , 0777);
             }
 
@@ -270,10 +288,19 @@ class ListingsController extends Controller
                     'es_title' => $request->get('es_title'),
                     'ar_title' => $request->get('ar_title'),
 
-                    'en_slug' => Str::slug($request->get('en_title') , '-'),
-                    'fr_slug' => Str::slug($request->get('fr_title') , '-'),
-                    'es_slug' => Str::slug($request->get('es_title') , '-'),
-                    'ar_slug' => str_replace(' ', '-' , $request->get('ar_title') ),
+                    'nbr_rooms' => $request->get('nbr_rooms'),
+                    'nbr_living_romm' => $request->get('nbr_living_romm'),
+                    'nbr_bathroom' => $request->get('nbr_bathroom'),
+                    'nbr_bedrooms' => $request->get('nbr_bedrooms'),
+
+                    'balcony' => $request->get('balcony'),
+                    'terrace' => $request->get('terrace'),
+                    'view' => $request->get('view'),
+                    'garden' => $request->get('garden'),
+
+                    'garage' => $request->get('garage'),
+                    'parking' => $request->get('parking'),
+                    'swimming_pool' => $request->get('swimming_pool'),
 
                     'en_desc' => $request->get('en_desc'),
                     'fr_desc' => $request->get('fr_desc'),
@@ -316,10 +343,19 @@ class ListingsController extends Controller
                     'es_title' => $request->get('es_title'),
                     'ar_title' => $request->get('ar_title'),
 
-                    'en_slug' => Str::slug($request->get('en_title') , '-'),
-                    'fr_slug' => Str::slug($request->get('fr_title') , '-'),
-                    'es_slug' => Str::slug($request->get('es_title') , '-'),
-                    'ar_slug' => str_replace(' ', '-' , $request->get('ar_title') ),
+                    'nbr_rooms' => $request->get('nbr_rooms'),
+                    'nbr_living_romm' => $request->get('nbr_living_romm'),
+                    'nbr_bathroom' => $request->get('nbr_bathroom'),
+                    'nbr_bedrooms' => $request->get('nbr_bedrooms'),
+
+                    'balcony' => $request->get('balcony'),
+                    'terrace' => $request->get('terrace'),
+                    'view' => $request->get('view'),
+                    'garden' => $request->get('garden'),
+
+                    'garage' => $request->get('garage'),
+                    'parking' => $request->get('parking'),
+                    'swimming_pool' => $request->get('swimming_pool'),
 
                     'en_desc' => $request->get('en_desc'),
                     'fr_desc' => $request->get('fr_desc'),

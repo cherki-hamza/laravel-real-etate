@@ -31,6 +31,21 @@
                     <a href="<?php echo e(route('site.contact')); ?>"><span class="title"><span class="title ">Contact</span></span></a>
                 </li>
 
+                <!-- start langs -->
+
+                <li class="">
+                    <a href="#"><span class="title">Langues</span></span></a>
+                    <!-- Level Two-->
+                    <ul class="sub-menu" style="">
+                        <li><a href="index.html">Englais</a></li>
+                        <li><a href="index2.html">Fransh</a></li>
+                        <li><a href="index3.html">Spain</a></li>
+                        <li><a href="index3.html">Arabic</a></li>
+                    </ul>
+                </li>
+
+                <!-- end langs -->
+
                 <li class="list-inline-item add_listing"><a href="<?php echo e(route('site.listing.form')); ?>"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
 
             </ul>
@@ -196,6 +211,21 @@
                 <li class="last">
                     <a href="<?php echo e(route('site.contact')); ?>"><span class="title">Contact</span></a>
                 </li>
+
+                <!-- start langs -->
+
+                <li class="">
+                    <a href="#"><span class="title">Langues</span></span></a>
+                    <!-- Level Two-->
+                    <ul class="sub-menu" style="">
+                        <li><a href="index.html">Englais</a></li>
+                        <li><a href="index2.html">Fransh</a></li>
+                        <li><a href="index3.html">Spain</a></li>
+                        <li><a href="index3.html">Arabic</a></li>
+                    </ul>
+                </li>
+
+                <!-- end langs -->
 
             <li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="<?php echo e(route('site.listing.form')); ?>"><span class="flaticon-plus"></span> Create Listing</a></li>
 

@@ -2,11 +2,11 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            Anything you want
+            <?php echo e(__('dashboard.made_with_love')); ?> 🧡
         </div>
         <!-- Default to the left -->
         <div class="text-center">
-          <strong><?php echo e(__('dashboard.Copyright')); ?> &copy; 2020 <a href="https://cherkihamza.com">cherkihamza.com</a>.</strong> <?php echo e(__('dashboard.COPY')); ?>
+          <strong><?php echo e(__('dashboard.Copyright')); ?> &copy; 2020 - <?php echo e(Date('Y')); ?> <a target="__blink" href="https://www.capconnect.com/">capconnect</a>.</strong> <?php echo e(__('dashboard.COPY')); ?>
 
         </div>
     </footer>

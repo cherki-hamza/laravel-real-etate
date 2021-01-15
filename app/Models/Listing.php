@@ -10,9 +10,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Listing extends Model
 {
-    protected $fillable = ['user_id' , 'category_id' , 'area_id' , 'city_id','map', 'ref' ,'email' , 'tel' , 'en_title' , 'fr_title','es_title', 'ar_title' ,
-                          'en_slug', 'fr_slug','es_slug' , 'ar_slug' , 'en_desc' , 'fr_desc' , 'es_desc' , 'ar_desc' , 'en_more_info',
-                          'fr_more_info' , 'es_more_info' ,'ar_more_info',  'status' , 'reference' , 'type_listing'  , 'price' , 'space', 'measure' ,'images'
+    protected $fillable = ['user_id' , 'category_id' , 'area_id' , 'city_id','map', 'ref' ,'email' , 'tel' , 'en_title' ,
+                           'fr_title','es_title', 'ar_title' , 'nbr_rooms', 'nbr_living_romm','nbr_bathroom' , 'nbr_bedrooms' ,
+                          'balcony', 'terrace','view' , 'garden' , 'garage', 'parking','swimming_pool' ,'en_desc' , 'fr_desc' ,
+                          'es_desc' , 'ar_desc' , 'en_more_info', 'fr_more_info' , 'es_more_info' ,'ar_more_info',  'status' ,
+                          'reference' , 'type_listing'  , 'price' , 'space', 'measure' ,'images'
     ];
 
         // methode to get the category of Lising

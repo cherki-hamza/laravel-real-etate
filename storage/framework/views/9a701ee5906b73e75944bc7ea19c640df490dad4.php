@@ -1,4 +1,7 @@
-<?php $__env->startSection('title' , 'All Listings'); ?>
+<?php $__env->startSection('title'); ?>
+  <?php echo e(__('dashboard.Show_All_Listings')); ?>
+
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('style'); ?>
 <style>
@@ -22,15 +25,15 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <h1>
-                        <span class="text-primary">All Listings : </span>
+                        <span class="text-primary"> <?php echo e(__('dashboard.Show_All_Listings')); ?>: </span>
                     </h1>
                 </div>
-                <div class="col-md-6 text-right">
-               <a href="<?php echo e(route('listings.create')); ?>"> <span class="btn btn-primary">Add New Listing</span></a>
+                <div class="col-md-6 <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'text-left':'text-right'); ?>">
+               <a href="<?php echo e(route('listings.create')); ?>"> <span class="btn btn-primary"> <?php echo e(__('dashboard.Add_New_Listing')); ?></span></a>
                </div>
             </div>
 
@@ -47,21 +50,20 @@
                      <!-- start alert -->
                    <span>    <?php echo $__env->make('backend.alert.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> </span>
                    <!-- end alert -->
-                <h2 class="text-success">all Listings</h2>
-                <div class="box-body">
+                <h2 class="text-success"> <?php echo e(__('dashboard.Show_All_Listings')); ?> :</h2>
+                <div class="box-body table-responsive">
                 <table <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="table table-bordered table-hover table-responsive">
                     <thead>
                         <tr class="bg-success">
-                        <th>#Id</th>
-                        <th>#Ref</th>
-                        <th>Listing Title</th>
-                       
-                        <th>Listing category</th>
-                        <th>Listing area</th>
-                        <th>Listing images</th>
-                        <th class="bg-info">Show</th>
-                        <th class="bg-warning">Edit</th>
-                        <th class="bg-danger">Delete</th>
+                        <th>#<?php echo e(__('dashboard.Id')); ?></th>
+                        <th>#<?php echo e(__('dashboard.REF')); ?></th>
+                        <th><?php echo e(__('dashboard.LISTING_TITLE')); ?></th>
+                        <th><?php echo e(__('dashboard.LISTING_CATEGORY')); ?></th>
+                        <th><?php echo e(__('dashboard.LISTING_AREA')); ?></th>
+                        <th><?php echo e(__('dashboard.LISTING_IMAGE')); ?></th>
+                        <th class="bg-info"><?php echo e(__('dashboard.show')); ?></th>
+                        <th class="bg-warning"><?php echo e(__('dashboard.Edit')); ?></th>
+                        <th class="bg-danger"><?php echo e(__('dashboard.Delete')); ?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -83,11 +85,11 @@
 
                             </td>
                             <td>
-                                <a href="<?php echo e(route('listings.show', $listing->id)); ?>"><span class="btn btn-primary"><i style="margin-right: 5px;" class="fa fa-eye"></i>Show</span></a>
+                                <a href="<?php echo e(route('listings.show', $listing->id)); ?>"><span class="btn btn-primary"><i style="margin-right: 5px;" class="fa fa-eye"></i><?php echo e(__('dashboard.show')); ?></span></a>
                             </td>
 
                             <td>
-                                <a href="<?php echo e(route('listings.edit', $listing->id)); ?>"><span class="btn btn-success"><i style="margin-right: 5px;" class="fa fa-eye"></i>Edit</span></a>
+                                <a href="<?php echo e(route('listings.edit', $listing->id)); ?>"><span class="btn btn-success"><i style="margin-right: 5px;" class="fa fa-eye"></i><?php echo e(__('dashboard.Edit')); ?></span></a>
                             </td>
 
                             <td>
@@ -96,7 +98,7 @@
 
                                 <?php echo e(method_field('DELETE')); ?>
 
-                                <button type="submit" class="btn btn-danger"><i style="margin-right: 5px;" class="fa fa-trash"></i> Delete</button>
+                                <button type="submit" class="btn btn-danger"><i style="margin-right: 5px;" class="fa fa-trash"></i> <?php echo e(__('dashboard.Delete')); ?></button>
                             </form>
                             </td>
 

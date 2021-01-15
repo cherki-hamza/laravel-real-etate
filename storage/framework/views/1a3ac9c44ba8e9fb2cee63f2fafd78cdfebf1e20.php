@@ -1,4 +1,7 @@
-<?php $__env->startSection('title' , 'All Areas'); ?>
+<?php $__env->startSection('title'); ?>
+  <?php echo e(__('dashboard.Show_All_Areas')); ?>
+
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('style'); ?>
 <style>
@@ -26,11 +29,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1>
-                        <span class="text-primary">All Areas : </span>
+                        <span class="text-primary"><?php echo e(__('dashboard.Show_All_Areas')); ?> : </span>
                     </h1>
                 </div>
-                <div class="col-md-6 text-right">
-               <a href="<?php echo e(route('areas.create')); ?>"> <span class="btn btn-primary">Add New Area</span></a>
+                <div class="col-md-6 <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'text-left':'text-right'); ?>">
+               <a href="<?php echo e(route('areas.create')); ?>"> <span class="btn btn-primary"><?php echo e(__('dashboard.Add_New_Area')); ?></span></a>
             </div>
             </div>
 
@@ -47,20 +50,20 @@
                      <!-- start alert -->
                    <span>    <?php echo $__env->make('backend.alert.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> </span>
                    <!-- end alert -->
-                <h2 class="text-success">all Areas</h2>
-                <div class="box-body">
-                <table <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="table table-bordered table-hover responsive">
+                <h2 class="text-success"><?php echo e(__('dashboard.Show_All_Areas')); ?></h2>
+                <div class="box-body table-responsive">
+                <table <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="table table-bordered table-hover">
                     <thead>
                         <tr class="bg-success">
-                        <th>#Id</th>
-                        <th>Area Image</th>
-                        <th>City Name</th>
-                        <th>English Title</th>
-                        <th>Fransh Title</th>
-                        <th>Spain Title</th>
-                        <th>Arabic Title</th>
-                        <th class="bg-info">Edit</th>
-                        <th class="bg-danger">Delete</th>
+                        <th>#<?php echo e(__('dashboard.Id')); ?></th>
+                        <th><?php echo e(__('dashboard.Area_Image')); ?></th>
+                        <th><?php echo e(__('dashboard.City')); ?></th>
+                        <th><?php echo e(__('dashboard.English_Title')); ?></th>
+                        <th><?php echo e(__('dashboard.French_Title')); ?></th>
+                        <th><?php echo e(__('dashboard.Spain_Title')); ?></th>
+                        <th><?php echo e(__('dashboard.Arabic_Title')); ?></th>
+                        <th class="bg-info"><?php echo e(__('dashboard.Edit')); ?></th>
+                        <th class="bg-danger"><?php echo e(__('dashboard.Delete')); ?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -77,14 +80,14 @@
                             <td><?php echo e($area->ar_area); ?></td>
 
 
-                            <td><a href="<?php echo e(route('areas.edit' , $area->id)); ?>">  <span class="btn btn-success"><i style="margin-right: 4px;" class="fa fa-edit "></i>Edit</span></a></td>
+                            <td><a href="<?php echo e(route('areas.edit' , $area->id)); ?>">  <span class="btn btn-success"><i style="margin-right: 4px;" class="fa fa-edit "></i><?php echo e(__('dashboard.Edit')); ?></span></a></td>
 
                             <td> <form action="<?php echo e(route('areas.destroy' , $area->id)); ?>" method="post">
                                 <?php echo e(csrf_field()); ?>
 
                                 <?php echo e(method_field('DELETE')); ?>
 
-                                <button type="submit" class="btn btn-danger">   <i style="margin-right: 4px;" class="fa fa-trash"></i> Delete</button>
+                                <button type="submit" class="btn btn-danger">   <i style="margin-right: 4px;" class="fa fa-trash"></i> <?php echo e(__('dashboard.Delete')); ?></button>
                             </form>
                             </td>
 

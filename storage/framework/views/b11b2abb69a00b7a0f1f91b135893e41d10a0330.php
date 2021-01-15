@@ -69,5 +69,5 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-red sidebar-mini">
+<body <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="hold-transition skin-red sidebar-mini">
 <?php /**PATH /var/www/html/cherki-RealEstate/resources/views/backend/layouts/header.blade.php ENDPATH**/ ?>

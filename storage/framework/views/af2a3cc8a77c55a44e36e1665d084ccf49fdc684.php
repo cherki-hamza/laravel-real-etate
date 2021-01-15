@@ -65,7 +65,7 @@
                         <th><?php echo e(__('dashboard.Mobile')); ?></th>
                         <th><?php echo e(__('dashboard.Subject')); ?></th>
                         <th><?php echo e(__('dashboard.Message')); ?></th>
-                        <th class="bg-success"><?php echo e(__('dashboard.show')); ?></th>
+                        <th class="bg-success"><?php echo e(__('dashboard.Show')); ?></th>
                         <th class="bg-danger"><?php echo e(__('dashboard.Delete')); ?></th>
                     </tr>
                     </thead>

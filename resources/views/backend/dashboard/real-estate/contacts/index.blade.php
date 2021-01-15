@@ -66,7 +66,7 @@
                         <th>{{__('dashboard.Mobile')}}</th>
                         <th>{{__('dashboard.Subject')}}</th>
                         <th>{{__('dashboard.Message')}}</th>
-                        <th class="bg-success">{{__('dashboard.show')}}</th>
+                        <th class="bg-success">{{__('dashboard.Show')}}</th>
                         <th class="bg-danger">{{__('dashboard.Delete')}}</th>
                     </tr>
                     </thead>

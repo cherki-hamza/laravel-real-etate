@@ -12,7 +12,7 @@
               <div class="box-header">
                 <h2 class="box-title text-success"> Permessions</h2>
               </div>
-              <div class="box-body">
+              <div class="box-body table-responsive">
                 <table style="justify-content: center;" class="table  table-responsive table-bordored table-hover table-striped">
                     <thead>
                         <tr  class="bg-primary text-center">

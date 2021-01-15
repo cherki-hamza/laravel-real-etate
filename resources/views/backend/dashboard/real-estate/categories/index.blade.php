@@ -1,6 +1,8 @@
 @extends('backend.master.app-dashboard')
 
-@section('title' , 'All Categories')
+@section('title')
+{{__('dashboard.Show_All_Categories')}}
+@stop
 
 @section('style')
 <style>
@@ -27,11 +29,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1>
-                        <span class="text-primary">All Categories : </span>
+                        <span class="text-primary">{{__('dashboard.Show_All_Categories')}}</span>
                     </h1>
                 </div>
-                <div class="col-md-6 text-right">
-               <a href="{{route('categories.create')}}"> <span class="btn btn-primary">Add New Category</span></a>
+                <div class="col-md-6 {{(LaravelLocalization::getCurrentLocale() ==='ar')?'text-left':'text-right'}}">
+               <a href="{{route('categories.create')}}"> <span class="btn btn-primary">{{__('dashboard.Add_New_Category')}}</span></a>
                </div>
             </div>
         </section>
@@ -47,19 +49,19 @@
                      <!-- start alert -->
                    <span>    @include('backend.alert.alert') </span>
                    <!-- end alert -->
-                <h2 class="text-success">all categories</h2>
-                <div class="box-body">
-                <table {{(LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''}} class="table table-bordered table-hover responsive">
+                <h2 class="text-success">{{__('dashboard.Show_All_Categories')}}</h2>
+                <div class="box-body table-responsive">
+                <table {{(LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''}} class="table table-bordered table-hover">
                     <thead>
                         <tr class="bg-success">
-                        <th>#Id</th>
-                        <th>Category Image</th>
-                        <th>English Title</th>
-                        <th>Fransh Title</th>
-                        <th>Spain Title</th>
-                        <th>Arabic Title</th>
-                        <th class="bg-info">Edit</th>
-                        <th class="bg-danger">Delete</th>
+                        <th>#{{__('dashboard.Id')}}</th>
+                        <th>{{__('dashboard.Show_All_Categories')}}</th>
+                        <th>{{__('dashboard.English_Title')}}</th>
+                        <th>{{__('dashboard.French_Title')}}</th>
+                        <th>{{__('dashboard.Spain_Title')}}</th>
+                        <th>{{__('dashboard.Arabic_Title')}}</th>
+                        <th class="bg-info">{{__('dashboard.Edit')}}</th>
+                        <th class="bg-danger">{{__('dashboard.Delete')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,12 +77,12 @@
                             <td>{{$cat->ar_title}}</td>
 
 
-                            <td><a href="{{route('categories.edit' , $cat->id)}}">  <span class="btn btn-success"><i style="margin-right: 4px;" class="fa fa-edit "></i>Edit</span></a></td>
+                            <td><a href="{{route('categories.edit' , $cat->id)}}">  <span class="btn btn-success"><i style="margin-right: 4px;" class="fa fa-edit "></i>{{__('dashboard.Edit')}}</span></a></td>
 
                             <td> <form action="{{route('categories.destroy' , $cat->id)}}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" class="btn btn-danger">   <i style="margin-right: 4px;" class="fa fa-trash"></i> Delete</button>
+                                <button type="submit" class="btn btn-danger">   <i style="margin-right: 4px;" class="fa fa-trash"></i> {{__('dashboard.Delete')}}</button>
                             </form>
                             </td>
 

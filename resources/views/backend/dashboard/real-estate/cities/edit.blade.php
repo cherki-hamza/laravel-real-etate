@@ -1,6 +1,8 @@
 @extends('backend.master.app-dashboard')
 
-@section('title' , 'Edit and Update City')
+@section('title')
+{{__('dashboard.Update_City')}}
+@stop
 
 @section('style')
 <style>
@@ -25,7 +27,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <span class="text-primary">Edit and Update City : </span>
+                <span class="text-primary">{{__('dashboard.Update_City')}} : </span>
             </h1>
 
         </section>
@@ -46,7 +48,7 @@
                       <!-- end alert -->
 
                       <h3 class="text-primary">
-                         Update the City
+                        {{__('dashboard.Update_City')}}
                       </h3>
                   </div>
                   <div class="box-body">
@@ -54,22 +56,22 @@
                           @csrf
                           @method('put')
                           <div class="form-group my-5">
-                              <label for="en_city">English City Title :</label>
+                              <label for="en_city">{{__('dashboard.English_Title')}} :</label>
                               <input type="text" class="form-control" id="en_city" name="en_city" value="{{$city->en_city}}">
                           </div>
 
                           <div class="form-group my-5">
-                            <label for="fr_city">French City Title :</label>
+                            <label for="fr_city">{{__('dashboard.French_Title')}} :</label>
                             <input type="text" class="form-control" id="fr_city" name="fr_city" value="{{$city->fr_city}}">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="es_city">Spain City Title :</label>
+                            <label for="es_city">{{__('dashboard.Spain_Title')}} :</label>
                             <input type="text" class="form-control" id="es_city" name="es_city" value="{{$city->es_city}}">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="ar_city">Arabic City Title :</label>
+                            <label for="ar_city">{{__('dashboard.Arabic_Title')}} :</label>
                             <input dir="rtl" type="text" class="form-control" id="ar_city" name="ar_city" value="{{$city->ar_city}}">
                         </div>
 
@@ -81,14 +83,14 @@
                                     {{-- <label for="picture">Select City Image :</label>
                                     <input type="file" class="form-control bg-info" id="picture" name="picture"> --}}
                                     <div class="form-group">
-                                        <label class="control-label">Select Image Upload File</label>
+                                        <label class="control-label">{{__('dashboard.Select_Image_Upload_File')}}</label>
                                         <div class="preview-zone hidden">
                                           <div class="box box-solid">
                                             <div class="box-header with-border">
-                                              <div><b>Preview</b></div>
+                                              <div><b>{{__('dashboard.Preview')}}</b></div>
                                               <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-danger btn-xs remove-preview">
-                                                  <i class="fa fa-times"></i> Reset This Form
+                                                  <i class="fa fa-times"></i> {{__('dashboard.Reset_This_Form')}}
                                                 </button>
                                               </div>
                                             </div>
@@ -98,21 +100,21 @@
                                         <div class="dropzone-wrapper">
                                           <div class="dropzone-desc">
                                             <i class="glyphicon glyphicon-download-alt"></i>
-                                            <p>Choose an image file or drag it here.</p>
+                                            <p>{{__('dashboard.Choose_an_image_file_or_drag_it_here')}}.</p>
                                           </div>
                                           <input type="file" id="picture" name="picture" class="dropzone">
                                         </div>
                                       </div>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <label for="content">Current Image :</label><br/>
+                                    <label for="content">{{__('dashboard.Current_Image')}} :</label><br/>
                                     <img style="width: 80px;height: 50px;border-radius: 100%" class="img-circle" src="{{asset($city->photo())}}" name="current_picture" alt="">
                                 </div>
                             </div>
                           </div>
 
                           <div class="form-group my-5">
-                              <input type="submit" class="btn btn-success btn-block" value="Update the City">
+                              <input type="submit" class="btn btn-success btn-block" value="{{__('dashboard.Update_City')}}">
                           </div>
                       </form>
                 </div>

@@ -93,9 +93,9 @@ class DashboardController extends Controller
             $removable_image_msg = $this->RemoveImage($profile->picture);
 
              // make directory if not created yet
-             if (!is_dir(public_path('/assets-file/images'))){
-                mkdir(public_path('/assets-file/images/profiles') , 0777);
-            }
+             /* if (!is_dir(public_path('/assets-file/images/profiles'))){
+                mkdir(public_path('/assets-file/images/profiles') , 777);
+            } */
 
             // save file to the public folder
             $picture = $this->saveImages($request->picture, 'assets-file/images/profiles');

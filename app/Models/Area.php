@@ -25,7 +25,7 @@ class Area extends Model
 
     // methode to get picture
     public function photo(){
-        return 'public/'.$this->picture;
+        return $this->picture;
     }
 
 }

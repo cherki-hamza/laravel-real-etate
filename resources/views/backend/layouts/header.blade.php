@@ -69,4 +69,4 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-red sidebar-mini">
+<body {{(LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''}} class="hold-transition skin-red sidebar-mini">

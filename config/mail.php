@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'mail.amsimmo.com'),
-            'port' => env('MAIL_PORT', 465),
-            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => 'mail.amsimmo.com',
+            'port' => '465',
+            'encryption' => 'ssl',
+            'username' => 'admin@amsimmo.com',
+            'password' => 'lD;Ux7;9Sd42Xo',
         ],
 
         'ses' => [
@@ -74,8 +74,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'admin@amsimmo.com',
+        'name' => 'amsimmo',
     ],
 
     /*

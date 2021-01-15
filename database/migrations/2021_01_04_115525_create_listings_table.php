@@ -28,10 +28,20 @@ class CreateListingsTable extends Migration
             $table->string('fr_title')->nullable();
             $table->string('es_title')->nullable();
             $table->string('ar_title')->nullable();
-            $table->string('en_slug')->nullable();
-            $table->string('fr_slug')->nullable();
-            $table->string('es_slug')->nullable();
-            $table->string('ar_slug')->nullable();
+
+            $table->string('nbr_rooms')->nullable();
+            $table->string('nbr_living_romm')->nullable();
+            $table->string('nbr_bathroom')->nullable();
+            $table->string('nbr_bedrooms')->nullable();
+
+            $table->string('balcony')->nullable();
+            $table->string('terrace')->nullable();
+            $table->string('view')->nullable();
+            $table->string('garden')->nullable();
+
+            $table->string('garage')->nullable();
+            $table->string('parking')->nullable();
+            $table->string('swimming_pool')->nullable();
 
 
             $table->text('en_desc')->nullable();
@@ -43,6 +53,8 @@ class CreateListingsTable extends Migration
             $table->text('fr_more_info')->nullable();
             $table->text('es_more_info')->nullable();
             $table->text('ar_more_info')->nullable();
+
+            $table->text('map')->nullable();
 
             $table->enum('status',[0,1])->default(0);
 

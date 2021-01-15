@@ -1,6 +1,8 @@
 @extends('backend.master.app-dashboard')
 
-@section('title' , 'Add New City')
+@section('title')
+{{__('dashboard.Add_New_City')}}
+@stop
 
 @section('style')
 <style>
@@ -25,7 +27,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <span class="text-primary">Create New City : </span>
+                <span class="text-primary">{{__('dashboard.Add_New_City')}} : </span>
             </h1>
 
         </section>
@@ -46,7 +48,7 @@
                       <!-- end alert -->
 
                       <h3 class="text-primary">
-                         Add New City
+                        {{__('dashboard.Add_New_City')}}
                       </h3>
                   </div>
                   <div class="box-body">
@@ -54,22 +56,22 @@
                           @csrf
 
                           <div class="form-group my-5">
-                              <label for="en_city">English City Title :</label>
+                              <label for="en_city">{{__('dashboard.English_Title')}} :</label>
                               <input type="text" class="form-control" id="en_city" name="en_city">
                           </div>
 
                           <div class="form-group my-5">
-                            <label for="fr_city">French City Title :</label>
+                            <label for="fr_city">{{__('dashboard.French_Title')}}  :</label>
                             <input type="text" class="form-control" id="fr_city" name="fr_city">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="es_city">Spain City Title :</label>
+                            <label for="es_city">{{__('dashboard.Spain_Title')}} :</label>
                             <input type="text" class="form-control" id="es_city" name="es_city">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="ar_city">Arabic City Title :</label>
+                            <label for="ar_city">{{__('dashboard.Arabic_Title')}} :</label>
                             <input dir="rtl" type="text" class="form-control" id="ar_city" name="ar_city">
                         </div>
 
@@ -85,14 +87,14 @@
                               </div> --}}
 
                               <div class="form-group">
-                                <label class="control-label">Select Image Upload File</label>
+                                <label class="control-label">{{__('dashboard.Select_Image_Upload_File')}}</label>
                                 <div class="preview-zone hidden">
                                   <div class="box box-solid">
                                     <div class="box-header with-border">
-                                      <div><b>Preview</b></div>
+                                      <div><b>{{__('dashboard.Preview')}}</b></div>
                                       <div class="box-tools pull-right">
                                         <button type="button" class="btn btn-danger btn-xs remove-preview">
-                                          <i class="fa fa-times"></i> Reset This Form
+                                          <i class="fa fa-times"></i> {{__('dashboard.Reset_This_Form')}}
                                         </button>
                                       </div>
                                     </div>
@@ -102,7 +104,7 @@
                                 <div class="dropzone-wrapper">
                                   <div class="dropzone-desc">
                                     <i class="glyphicon glyphicon-download-alt"></i>
-                                    <p>Choose an image file or drag it here.</p>
+                                    <p>{{__('dashboard.Choose_an_image_file_or_drag_it_here')}}.</p>
                                   </div>
                                   <input type="file" id="picture" name="picture" class="dropzone">
                                 </div>
@@ -112,7 +114,7 @@
                           </div>
 
                           <div class="form-group my-5">
-                              <input type="submit" class="btn btn-success btn-block" value="Add New City">
+                              <input type="submit" class="btn btn-success btn-block" value="{{__('dashboard.Add_New_City')}}">
                           </div>
                       </form>
                 </div>
@@ -124,17 +126,17 @@
               <!-- start div 2 col-md-6 -->
                 <div class="col-md-6">
                         <div class="box box-primary">
-                        <h2 class="text-success">all Cities</h2>
-                        <div class="box-body">
-                        <table class="table table-bordered table-hover responsive">
+                        <h2 class="text-success"> {{__('dashboard.Show_All_Cities')}}:</h2>
+                        <div class="box-body table-responsive">
+                        <table {{(LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''}} class="table table-bordered table-hover">
                             <thead>
                                 <tr class="bg-success">
-                                <th>#Id</th>
-                                <th>City Image</th>
-                                <th>English City Title</th>
-                                <th>Fransh City Title</th>
-                                <th>Spain City Title</th>
-                                <th>Arabic City Title</th>
+                                    <th>#{{__('dashboard.Id')}}</th>
+                                    <th>{{__('dashboard.City_Image')}}</th>
+                                    <th>{{__('dashboard.English_Title')}}</th>
+                                    <th>{{__('dashboard.French_Title')}}</th>
+                                    <th>{{__('dashboard.Spain_Title')}}</th>
+                                    <th>{{__('dashboard.Arabic_Title')}}</th>
                             </tr>
                             </thead>
                             <tbody>

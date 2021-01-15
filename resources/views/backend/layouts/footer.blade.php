@@ -2,11 +2,11 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            Anything you want
+            {{__('dashboard.made_with_love')}} 🧡
         </div>
         <!-- Default to the left -->
         <div class="text-center">
-          <strong>{{__('dashboard.Copyright')}} &copy; 2020 <a href="https://cherkihamza.com">cherkihamza.com</a>.</strong> {{__('dashboard.COPY')}}
+          <strong>{{__('dashboard.Copyright')}} &copy; 2020 - {{Date('Y')}} <a target="__blink" href="https://www.capconnect.com/">capconnect</a>.</strong> {{__('dashboard.COPY')}}
         </div>
     </footer>
 

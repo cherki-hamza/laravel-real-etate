@@ -23,7 +23,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <span class="text-primary">Create New Category : </span>
+                <span class="text-primary"><?php echo e(__('dashboard.Update_Category')); ?> : </span>
             </h1>
 
         </section>
@@ -44,7 +44,8 @@
                       <!-- end alert -->
 
                       <h3 class="text-primary">
-                         Update the Category
+                        <?php echo e(__('dashboard.Update_Category')); ?>
+
                       </h3>
                   </div>
                   <div class="box-body">
@@ -52,22 +53,22 @@
                           <?php echo csrf_field(); ?>
                           <?php echo method_field('put'); ?>
                           <div class="form-group my-5">
-                              <label for="en_title">English Category Title :</label>
+                              <label for="en_title"><?php echo e(__('dashboard.English_Title')); ?> :</label>
                               <input type="text" class="form-control" id="en_title" name="en_title" value="<?php echo e($category->en_title); ?>">
                           </div>
 
                           <div class="form-group my-5">
-                            <label for="fr_title">French Category Title :</label>
+                            <label for="fr_title"><?php echo e(__('dashboard.French_Title')); ?> :</label>
                             <input type="text" class="form-control" id="fr_title" name="fr_title" value="<?php echo e($category->fr_title); ?>">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="es_title">Spain Category Title :</label>
+                            <label for="es_title"><?php echo e(__('dashboard.Spain_Title')); ?>:</label>
                             <input type="text" class="form-control" id="es_title" name="es_title" value="<?php echo e($category->es_title); ?>">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="ar_title">Arabic Category Title :</label>
+                            <label for="ar_title"><?php echo e(__('dashboard.Arabic_Title')); ?>:</label>
                             <input dir="rtl" type="text" class="form-control" id="ar_title" name="ar_title" value="<?php echo e($category->ar_title); ?>">
                         </div>
 
@@ -79,14 +80,15 @@
                                     
                                     
                                     <div class="form-group">
-                                        <label class="control-label">Select Image Upload File</label>
+                                        <label class="control-label"><?php echo e(__('dashboard.Select_Image_Upload_File')); ?></label>
                                         <div class="preview-zone hidden">
                                           <div class="box box-solid">
                                             <div class="box-header with-border">
                                               <div><b>Preview</b></div>
                                               <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-danger btn-xs remove-preview">
-                                                  <i class="fa fa-times"></i> Reset This Form
+                                                  <i class="fa fa-times"></i> <?php echo e(__('dashboard.Reset_This_Form')); ?>
+
                                                 </button>
                                               </div>
                                             </div>
@@ -96,21 +98,21 @@
                                         <div class="dropzone-wrapper">
                                           <div class="dropzone-desc">
                                             <i class="glyphicon glyphicon-download-alt"></i>
-                                            <p>Choose an image file or drag it here.</p>
+                                            <p><?php echo e(__('dashboard.Choose_an_image_file_or_drag_it_here')); ?>.</p>
                                           </div>
                                           <input type="file" id="picture" name="picture" class="dropzone">
                                         </div>
                                       </div>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <label for="content">Current Image :</label><br/>
+                                    <label for="content"><?php echo e(__('dashboard.Current_Image')); ?> :</label><br/>
                                     <img style="width: 80px;height: 50px;border-radius: 100%" class="img-circle" src="<?php echo e(asset($category->photo())); ?>" name="current_picture" alt="">
                                 </div>
                             </div>
                           </div>
 
                           <div class="form-group my-5">
-                              <input type="submit" class="btn btn-success btn-block" value="Update the Category">
+                              <input type="submit" class="btn btn-success btn-block" value="<?php echo e(__('dashboard.Update_Category')); ?>">
                           </div>
                       </form>
                 </div>

@@ -1,4 +1,7 @@
-<?php $__env->startSection('title' , 'Add New Category'); ?>
+<?php $__env->startSection('title'); ?>
+<?php echo e(__('dashboard.Add_New_Category')); ?>
+
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('style'); ?>
 <style>
@@ -23,7 +26,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <span class="text-primary">Create New Category : </span>
+                <span class="text-primary"> <?php echo e(__('dashboard.Add_New_Category')); ?> : </span>
             </h1>
 
         </section>
@@ -44,7 +47,10 @@
                       <!-- end alert -->
 
                       <h3 class="text-primary">
-                         Add New Category
+                        <?php $__env->startSection('title'); ?>
+                        <?php echo e(__('dashboard.Add_New_Category')); ?>
+
+                        <?php $__env->stopSection(); ?>
                       </h3>
                   </div>
                   <div class="box-body">
@@ -52,22 +58,22 @@
                           <?php echo csrf_field(); ?>
 
                           <div class="form-group my-5">
-                              <label for="en_title">English Category Title :</label>
+                              <label for="en_title"> <?php echo e(__('dashboard.English_Title')); ?> :</label>
                               <input type="text" class="form-control" id="en_title" name="en_title">
                           </div>
 
                           <div class="form-group my-5">
-                            <label for="fr_title">French Category Title :</label>
+                            <label for="fr_title"> <?php echo e(__('dashboard.French_Title')); ?> :</label>
                             <input type="text" class="form-control" id="fr_title" name="fr_title">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="es_title">Spain Category Title :</label>
+                            <label for="es_title"> <?php echo e(__('dashboard.Spain_Title')); ?> :</label>
                             <input type="text" class="form-control" id="es_title" name="es_title">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="ar_title">Arabic Category Title :</label>
+                            <label for="ar_title"> <?php echo e(__('dashboard.Arabic_Title')); ?> :</label>
                             <input dir="rtl" type="text" class="form-control" id="ar_title" name="ar_title">
                         </div>
 
@@ -78,14 +84,15 @@
                               
 
                               <div class="form-group">
-                                <label class="control-label">Select Image Upload File</label>
+                                <label class="control-label"><?php echo e(__('dashboard.Select_Image_Upload_File')); ?></label>
                                 <div class="preview-zone hidden">
                                   <div class="box box-solid">
                                     <div class="box-header with-border">
                                       <div><b>Preview</b></div>
                                       <div class="box-tools pull-right">
                                         <button type="button" class="btn btn-danger btn-xs remove-preview">
-                                          <i class="fa fa-times"></i> Reset This Form
+                                          <i class="fa fa-times"></i> <?php echo e(__('dashboard.Reset_This_Form')); ?>
+
                                         </button>
                                       </div>
                                     </div>
@@ -95,7 +102,7 @@
                                 <div class="dropzone-wrapper">
                                   <div class="dropzone-desc">
                                     <i class="glyphicon glyphicon-download-alt"></i>
-                                    <p>Choose an image file or drag it here.</p>
+                                    <p><?php echo e(__('dashboard.Choose_an_image_file_or_drag_it_here')); ?>.</p>
                                   </div>
                                   <input type="file" id="picture" name="picture" class="dropzone">
                                 </div>
@@ -105,7 +112,7 @@
                           </div>
 
                           <div class="form-group my-5">
-                              <input type="submit" class="btn btn-success btn-block" value="Add New Category">
+                              <input type="submit" class="btn btn-success btn-block" value="<?php echo e(__('dashboard.Add_New_Category')); ?>">
                           </div>
                       </form>
                 </div>
@@ -117,17 +124,17 @@
               <!-- start div 2 col-md-6 -->
                 <div class="col-md-6">
                         <div class="box box-primary">
-                        <h2 class="text-success">all categories</h2>
-                        <div class="box-body">
-                        <table class="table table-bordered table-hover responsive">
+                        <h2 class="text-success"><?php echo e(__('dashboard.Show_All_Categories')); ?></h2>
+                        <div class="box-body table-responsive">
+                        <table <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="table table-bordered table-hover">
                             <thead>
                                 <tr class="bg-success">
-                                <th>#Id</th>
-                                <th>Category Image</th>
-                                <th>English Title</th>
-                                <th>Fransh Title</th>
-                                <th>Spain Title</th>
-                                <th>Arabic Title</th>
+                                <th>#<?php echo e(__('dashboard.Id')); ?></th>
+                                <th><?php echo e(__('dashboard.Category_Image')); ?></th>
+                                <th><?php echo e(__('dashboard.English_Title')); ?></th>
+                                <th><?php echo e(__('dashboard.French_Title')); ?></th>
+                                <th><?php echo e(__('dashboard.Spain_Title')); ?></th>
+                                <th><?php echo e(__('dashboard.Arabic_Title')); ?></th>
                             </tr>
                             </thead>
                             <tbody>

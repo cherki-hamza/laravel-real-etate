@@ -1,4 +1,7 @@
-<?php $__env->startSection('title' , 'Add New Area'); ?>
+<?php $__env->startSection('title'); ?>
+<?php echo e(__('dashboard.Add_New_Area')); ?>
+
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('style'); ?>
 <style>
@@ -23,7 +26,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <span class="text-primary">Create New Area : </span>
+                <span class="text-primary"><?php echo e(__('dashboard.Add_New_Area')); ?> : </span>
             </h1>
 
         </section>
@@ -44,7 +47,8 @@
                       <!-- end alert -->
 
                       <h3 class="text-primary">
-                         Add New Area
+                        <?php echo e(__('dashboard.Add_New_Area')); ?>
+
                       </h3>
                   </div>
                   <div class="box-body">
@@ -52,9 +56,9 @@
                           <?php echo csrf_field(); ?>
 
                             <div class="form-group my-5">
-                                <label for="city_id">Select City :</label>
+                                <label for="city_id"><?php echo e(__('dashboard.City')); ?> :</label>
                                 <select class="form-control" name="city_id" id="city_id">
-                                    <option> Select City </option>
+                                    <option> <?php echo e(__('dashboard.City')); ?> </option>
                                     <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <option value="<?php echo e($city->id); ?>"> <?php echo e($city->en_city); ?> </option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -62,22 +66,22 @@
                             </div>
 
                           <div class="form-group my-5">
-                              <label for="en_area">English Area Title :</label>
+                              <label for="en_area"><?php echo e(__('dashboard.English_Title')); ?> :</label>
                               <input type="text" class="form-control" id="en_area" name="en_area">
                           </div>
 
                           <div class="form-group my-5">
-                            <label for="fr_area">French Area Title :</label>
+                            <label for="fr_area"><?php echo e(__('dashboard.French_Title')); ?> :</label>
                             <input type="text" class="form-control" id="fr_area" name="fr_area">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="es_area">Spain Area Title :</label>
+                            <label for="es_area"><?php echo e(__('dashboard.Spain_Title')); ?> :</label>
                             <input type="text" class="form-control" id="es_area" name="es_area">
                         </div>
 
                         <div class="form-group my-5">
-                            <label for="ar_area">Arabic Area Title :</label>
+                            <label for="ar_area"><?php echo e(__('dashboard.Arabic_Title')); ?> :</label>
                             <input dir="rtl" type="text" class="form-control" id="ar_area" name="ar_area">
                         </div>
 
@@ -88,14 +92,15 @@
                               
 
                               <div class="form-group">
-                                <label class="control-label">Select Image Upload File</label>
+                                <label class="control-label"><?php echo e(__('dashboard.Select_Image_Upload_File')); ?></label>
                                 <div class="preview-zone hidden">
                                   <div class="box box-solid">
                                     <div class="box-header with-border">
-                                      <div><b>Preview</b></div>
+                                      <div><b><?php echo e(__('dashboard.Preview')); ?></b></div>
                                       <div class="box-tools pull-right">
                                         <button type="button" class="btn btn-danger btn-xs remove-preview">
-                                          <i class="fa fa-times"></i> Reset This Form
+                                          <i class="fa fa-times"></i> <?php echo e(__('dashboard.Reset_This_Form')); ?>
+
                                         </button>
                                       </div>
                                     </div>
@@ -105,7 +110,7 @@
                                 <div class="dropzone-wrapper">
                                   <div class="dropzone-desc">
                                     <i class="glyphicon glyphicon-download-alt"></i>
-                                    <p>Choose an image file or drag it here.</p>
+                                    <p><?php echo e(__('dashboard.Choose_an_image_file_or_drag_it_here')); ?>.</p>
                                   </div>
                                   <input type="file" id="picture" name="picture" class="dropzone">
                                 </div>
@@ -115,7 +120,7 @@
                           </div>
 
                           <div class="form-group my-5">
-                              <input type="submit" class="btn btn-success btn-block" value="Add New Area">
+                              <input type="submit" class="btn btn-success btn-block" value="<?php echo e(__('dashboard.Add_New_Area')); ?>">
                           </div>
                       </form>
                 </div>
@@ -127,18 +132,18 @@
               <!-- start div 2 col-md-6 -->
                 <div class="col-md-6">
                         <div class="box box-primary">
-                        <h2 class="text-success">all Areas</h2>
-                        <div class="box-body">
-                        <table class="table table-bordered table-hover responsive">
+                        <h2 class="text-success"><?php echo e(__('dashboard.AREAS')); ?></h2>
+                        <div class="box-body table-responsive">
+                        <table <?php echo e((LaravelLocalization::getCurrentLocale() ==='ar')?'dir=rtl':''); ?> class="table table-bordered table-hover">
                             <thead>
                                 <tr class="bg-success">
-                                <th>#Id</th>
-                                <th>Area Image</th>
-                                <th>City Name</th>
-                                <th>English Title</th>
-                                <th>Fransh Title</th>
-                                <th>Spain Title</th>
-                                <th>Arabic Title</th>
+                                    <th>#<?php echo e(__('dashboard.Id')); ?></th>
+                                    <th><?php echo e(__('dashboard.Area_Image')); ?></th>
+                                    <th><?php echo e(__('dashboard.City')); ?></th>
+                                    <th><?php echo e(__('dashboard.English_Title')); ?></th>
+                                    <th><?php echo e(__('dashboard.French_Title')); ?></th>
+                                    <th><?php echo e(__('dashboard.Spain_Title')); ?></th>
+                                    <th><?php echo e(__('dashboard.Arabic_Title')); ?></th>
                             </tr>
                             </thead>
                             <tbody>
